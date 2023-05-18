@@ -4,6 +4,13 @@ import { forms } from "../utils"
 
 export const Component = () => {
  
+
+    const initializer = {
+        "name": "Full Name",
+        "description": "Description",
+        "email": "cjl@torkore.com"
+      }
+
     return (
         <div>
             <FormContainer 
@@ -11,6 +18,7 @@ export const Component = () => {
                 className="container mx-auto"
                 title="Formulario"
                 onSubmit={(values) => console.log(values)}
+                initializer={initializer}
             >
                 {
                     () => (

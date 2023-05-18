@@ -52,6 +52,7 @@ export interface FormContextProps {
     values: { [x: string]: InputProps[] }
     setvalues: React.Dispatch<React.SetStateAction<{[key: string]: any}>>
     onSubmit?: ((args: { [x: string]: string }) => void) | undefined
+    initializer?: { [key: string]: any } 
 }
 
 export interface FormHandlers {

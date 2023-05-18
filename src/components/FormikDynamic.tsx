@@ -15,8 +15,8 @@ import { useContext } from "react";
 
 export const FormikDynamic = () => {
 
-  const { constructorForm, setvalues, title, className, onSubmit: callback } = useContext(FormContext)
-  const { initialValues, inputs, validationSchema } = getInputsv2("login", constructorForm);
+  const { constructorForm, setvalues, title, className, onSubmit: callback, initializer } = useContext(FormContext)
+  const { initialValues, inputs, validationSchema } = getInputsv2("login", constructorForm, initializer);
 
   return (
     <Layout title={title!} className={className}>

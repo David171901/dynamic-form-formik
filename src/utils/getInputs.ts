@@ -57,9 +57,9 @@ const generateValidations = (field: InputProps) => {
 type Form = "login";
 
 export const getInputs = (section: Form) => {
-  let initialValues: { [key: string]: any } = {};
+  const initialValues: { [key: string]: any } = {};
 
-  let validationsFields: { [key: string]: any } = {};
+  const validationsFields: { [key: string]: any } = {};
 
   for (const field of forms[section]) {
     initialValues[field.name] = field.value;
@@ -78,13 +78,14 @@ export const getInputs = (section: Form) => {
   };
 };
 
-export const getInputsv2 = (section: string, form: { [x: string]: InputProps[] }) => {
+export const getInputsv2 = (section: string, form: { [x: string]: InputProps[] }, initializer?: { [key: string]: any }) => {
   let initialValues: { [key: string]: any } = {};
 
-  let validationsFields: { [key: string]: any } = {};
+  const validationsFields: { [key: string]: any } = {};
 
   for (const field of form[section]) {
-    initialValues[field.name] = field.value;
+    if(initializer) initialValues = initializer;
+    else initialValues[field.name] = field.value;
 
     if (!field.validations) continue;
 
