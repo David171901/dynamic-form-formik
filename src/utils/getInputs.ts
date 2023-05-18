@@ -1,8 +1,7 @@
 import * as Yup from "yup";
 import { AnyObject, Maybe } from "yup/lib/types";
-import { forms } from "./forms";
 import { TypeOfShape } from "yup/lib/object";
-import { InputProps } from "../interfaces/interfaces";
+import { DefaultJSON, InputProps } from "../interfaces/interfaces";
 
 type YupBoolean = Yup.BooleanSchema<
   boolean | undefined,
@@ -54,37 +53,13 @@ const generateValidations = (field: InputProps) => {
   return schema;
 };
 
-type Form = "login";
+export const getInputs = (section: string, form: { [x: string]: InputProps[] }, initialformdata?: DefaultJSON) => {
+  let initialValues: DefaultJSON = {};
 
-export const getInputs = (section: Form) => {
-  const initialValues: { [key: string]: any } = {};
-
-  const validationsFields: { [key: string]: any } = {};
-
-  for (const field of forms[section]) {
-    initialValues[field.name] = field.value;
-
-    if (!field.validations) continue;
-
-    const schema = generateValidations(field);
-
-    validationsFields[field.name] = schema;
-  }
-
-  return {
-    validationSchema: Yup.object({ ...validationsFields }),
-    initialValues,
-    inputs: forms[section],
-  };
-};
-
-export const getInputsv2 = (section: string, form: { [x: string]: InputProps[] }, initializer?: { [key: string]: any }) => {
-  let initialValues: { [key: string]: any } = {};
-
-  const validationsFields: { [key: string]: any } = {};
+  const validationsFields: DefaultJSON = {};
 
   for (const field of form[section]) {
-    if(initializer) initialValues = initializer;
+    if(initialformdata) initialValues = initialformdata;
     else initialValues[field.name] = field.value;
 
     if (!field.validations) continue;

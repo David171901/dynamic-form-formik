@@ -1,34 +1,29 @@
-import { FormContainer } from "../components/FormContainer"
-import { FormikDynamic } from "../components/FormikDynamic"
-import { forms } from "../utils"
+import { Form, LayoutForm } from "../components";
+import { forms } from "../utils";
 
 export const Component = () => {
- 
+    
+  const initialformdata = {
+    name: "Full Name",
+    description: "Description",
+    email: "cjl@torkore.com",
+  };
 
-    const initializer = {
-        "name": "Full Name",
-        "description": "Description",
-        "email": "cjl@torkore.com"
-      }
-
-    return (
-        <div>
-            <FormContainer 
-                constructorForm={forms}
-                className="container mx-auto"
-                title="Formulario"
-                onSubmit={(values) => console.log(values)}
-                initializer={initializer}
-            >
-                {
-                    () => (
-                        <>
-                            <FormikDynamic />
-                        </>
-                    )
-                }
-            </FormContainer>
-
-        </div>
-    )
-}
+  return (
+    <div>
+      <LayoutForm
+        formSchema={forms}
+        formTitle={"Formulario"}
+        className="container mx-auto"
+        onSubmit={(values) => console.log(values)}
+        initialformdata={initialformdata}
+      >
+        {() => (
+          <>
+            <Form />
+          </>
+        )}
+      </LayoutForm>
+    </div>
+  );
+};

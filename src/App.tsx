@@ -1,13 +1,10 @@
-import { FormikBasic, FormikDynamic, FormikBasicArray } from "./pages"
-import { Component } from "./pages/Component"
+import { Component } from "./pages"
+
 
 const App = () => {
   return (
     <>
       <Component></Component>
-      {/* <FormikDynamic /> */}
-      {/* <FormikBasic /> */}
-      {/* <FormikBasicArray/> */}
     </>
   )
 }

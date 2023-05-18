@@ -22,38 +22,40 @@ npm install
 Here, you can provide examples of how to use your component in different scenarios:
 
 ```
-import { FormContainer } from "../components/FormContainer"
-import { FormikDynamic } from "../components/FormikDynamic"
-import { forms } from "../utils"
+import { Form, LayoutForm } from "../components";
+import { forms } from "../utils";
 
 export const Component = () => {
- 
-    return (
-        <div>
-            <FormContainer 
-                constructorForm={forms}
-                className="container mx-auto"
-                title="Formulario"
-                action={(values) => console.log(values)}
-            >
-                {
-                    () => (
-                        <>
-                            <FormikDynamic />
-                        </>
-                    )
-                }
-            </FormContainer>
+    
+  const initialformdata = {
+    name: "Full Name",
+    description: "Description",
+    email: "cjl@torkore.com",
+  };
 
-        </div>
-    )
-}
-s
+  return (
+    <div>
+      <LayoutForm
+        formSchema={forms}
+        formTitle={"Formulario"}
+        className="container mx-auto"
+        onSubmit={(values) => console.log(values)}
+        initialformdata={initialformdata}
+      >
+        {() => (
+          <>
+            <Form />
+          </>
+        )}
+      </LayoutForm>
+    </div>
+  );
+};
 ```
 
 ## Props
 
-constructorForm (object): The initial form values represented as a JSON object.
+formSchema (object): The initial form values represented as a JSON object.
 action (function): A callback function invoked when the form is submitted. It receives the form values as an argument.
 className (string)
 title (string)

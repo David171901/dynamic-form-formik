@@ -1,4 +1,5 @@
-import { FormikErrors } from "formik";
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export type DefaultJSON = { [key: string]: any }
 
 export interface InputProps {
   type:
@@ -12,25 +13,25 @@ export interface InputProps {
     | "checkbox-group"
     | "field-array";
   name: string;
-  value: string | number | boolean | string[] | { [key: string]: string }[];
-  validations: Validation[];
-  placeholder?: string;
-  typeValue?: "string" | "boolean" | "array";
-  label?: string;
-  options?: Opt[];
-  fields?: Fields[];
+  value: string | number | boolean | string[] | DefaultJSON[]
+  validations: Validation[]
+  placeholder?: string
+  typeValue?: "string" | "boolean" | "array"
+  label?: string
+  options?: Opt[]
+  fields?: Fields[]
 }
 
 export interface Opt {
-  value: string | number;
-  desc: string;
+  value: string | number
+  desc: string
 }
 
 export interface Fields {
-  type: "text";
-  name: string;
-  label: string;
-  placeholder?: string;
+  type: "text"
+  name: string
+  label: string
+  placeholder?: string
 }
 
 export interface Validation {
@@ -40,21 +41,21 @@ export interface Validation {
     | "minLength"
     | "isTrue"
     | "maxLength"
-    | "matches";
-  value?: string | number | boolean | RegExp;
-  message: string;
+    | "matches"
+  value?: string | number | boolean | RegExp
+  message: string
 }
 
 export interface FormContextProps {
-    constructorForm: { [x: string]: InputProps[] }
-    className?: string
-    title?: string
-    values: { [x: string]: InputProps[] }
-    setvalues: React.Dispatch<React.SetStateAction<{[key: string]: any}>>
-    onSubmit?: ((args: { [x: string]: string }) => void) | undefined
-    initializer?: { [key: string]: any } 
+  formSchema: { [x: string]: InputProps[] }
+  formTitle: string
+  setvalues: React.Dispatch<React.SetStateAction<DefaultJSON>>
+  values: { [x: string]: InputProps[] }
+  className?: string
+  initialformdata?: DefaultJSON
+  onSubmit?: ((args: { [x: string]: string }) => void) | undefined
 }
 
 export interface FormHandlers {
-    values: { [key: string]: any }
+  values: DefaultJSON
 }

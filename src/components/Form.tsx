@@ -1,4 +1,4 @@
-import { Form, Formik } from "formik";
+import { Form as FormFormik, Formik } from "formik";
 import {
   CustomCheckBox,
   CustomRadioGroup,
@@ -8,23 +8,28 @@ import {
   CustomCheckboxGroup,
   CustomFieldArrays,
   CustomTextarea,
-} from "../components";
+} from ".";
 import { getInputs } from "../utils";
+import { FormContext } from "./LayoutForm";
+import { useContext } from "react";
 
-const { initialValues, inputs, validationSchema } = getInputs("login");
+export const Form = () => {
 
-export const FormikDynamic = () => {
+  const { formSchema, setvalues, formTitle, className, onSubmit: callback, initialformdata } = useContext(FormContext)
+  const { initialValues, inputs, validationSchema } = getInputs("login", formSchema, initialformdata);
+
   return (
-    <Layout title="Formik Dynamic">
+    <Layout title={formTitle} className={className}>
       <Formik
         {...{ initialValues, validationSchema }}
         onSubmit={(values) => {
-          console.log(values);
+          if(callback) callback(values)
+          setvalues(values);
         }}
       >
-        {({ values, errors }) => (
-          <Form noValidate>
-            {inputs.map(({ name, type, value, ...props }) => {
+        {({ values }) => (
+          <FormFormik noValidate>
+            {inputs.map(({ name, type, ...props }) => {
               switch (type) {
                 case "select":
                   return (
@@ -105,7 +110,7 @@ export const FormikDynamic = () => {
             >
               SEND
             </button>
-          </Form>
+          </FormFormik>
         )}
       </Formik>
     </Layout>
