@@ -10,7 +10,7 @@ export const Component = () => {
                 constructorForm={forms}
                 className="container mx-auto"
                 title="Formulario"
-                action={(values) => console.log(values)}
+                onSubmit={(values) => console.log(values)}
             >
                 {
                     () => (

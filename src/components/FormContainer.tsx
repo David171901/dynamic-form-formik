@@ -9,10 +9,10 @@ export interface Props {
     title?: string
     className?: string
     children: (args: FormHandlers) => JSX.Element
-    action?: (values: {[key: string]: any}) => void 
+    onSubmit?: (values: {[key: string]: any}) => void 
 }
 
-export const FormContainer = ({ children, className, constructorForm, action ,title = "" }: Props ) => {
+export const FormContainer = ({ children, className, constructorForm, onSubmit ,title = "" }: Props ) => {
 
     const [values, setvalues] = useState<{[key: string]: any}>({})
     
@@ -23,7 +23,7 @@ export const FormContainer = ({ children, className, constructorForm, action ,ti
             setvalues,
             className,
             title,
-            action,
+            onSubmit,
         }}>
             <>
                 { 

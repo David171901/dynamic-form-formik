@@ -9,13 +9,13 @@ import {
   CustomFieldArrays,
   CustomTextarea,
 } from "../components";
-import { forms, getInputsv2 } from "../utils";
+import { getInputsv2 } from "../utils";
 import { FormContext } from "./FormContainer";
 import { useContext } from "react";
 
 export const FormikDynamic = () => {
 
-  const { constructorForm, setvalues, title, className, action } = useContext(FormContext)
+  const { constructorForm, setvalues, title, className, onSubmit: callback } = useContext(FormContext)
   const { initialValues, inputs, validationSchema } = getInputsv2("login", constructorForm);
 
   return (
@@ -23,13 +23,13 @@ export const FormikDynamic = () => {
       <Formik
         {...{ initialValues, validationSchema }}
         onSubmit={(values) => {
-          if(action) action(values)
+          if(callback) callback(values)
           setvalues(values);
         }}
       >
-        {({ values, errors }) => (
+        {({ values }) => (
           <Form noValidate>
-            {inputs.map(({ name, type, value, ...props }) => {
+            {inputs.map(({ name, type, ...props }) => {
               switch (type) {
                 case "select":
                   return (
