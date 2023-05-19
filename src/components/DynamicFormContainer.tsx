@@ -18,7 +18,7 @@ export interface Props {
   onSubmit?: (values: DefaultJSON) => void;
 }
 
-export const LayoutForm = ({
+export const DynamicFormContainer = ({
   children,
   formSchema,
   className,

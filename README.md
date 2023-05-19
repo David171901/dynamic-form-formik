@@ -22,7 +22,7 @@ npm install
 Here, you can provide examples of how to use your component in different scenarios:
 
 ```
-import { Form, LayoutForm } from "../components";
+import { Form, DynamicFormContainer } from "../components";
 import { forms } from "../utils";
 
 export const Component = () => {
@@ -35,7 +35,7 @@ export const Component = () => {
 
   return (
     <div>
-      <LayoutForm
+      <DynamicFormContainer
         formSchema={forms}
         formTitle={"Formulario"}
         className="container mx-auto"
@@ -47,7 +47,7 @@ export const Component = () => {
             <Form />
           </>
         )}
-      </LayoutForm>
+      </DynamicFormContainer>
     </div>
   );
 };
