@@ -16,7 +16,7 @@ To use this dynamic form component in your React project, follow these steps:
 
 1. Install the package via npm or yarn by running the following command:
 
-npm install
+npm install dynamic-form-builder-react
 
 ## Usage
 Here, you can provide examples of how to use your component in different scenarios:
