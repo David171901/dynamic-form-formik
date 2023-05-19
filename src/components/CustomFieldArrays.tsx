@@ -1,5 +1,6 @@
 import { Field, ErrorMessage, FieldArray, useField } from "formik";
-import { Fields } from "../utils";
+import { Fields } from "../interfaces/interfaces";
+
 
 interface Props {
   name: string;

@@ -1,4 +1,5 @@
 import { ErrorMessage, useField } from "formik"
+import styles from '../styles/styles.module.css'
 
 interface Props {
     name: string;
@@ -15,9 +16,9 @@ export const CustomTextInput = ({ label, ...props }: Props) => {
     return (
         <>
             <div>
-                <label className="mb-1 block text-base font-medium text-[#000000]">{label}</label>
-                <input className="w-full rounded-md border border-[#000000] bg-white py-3 px-6 text-base text-[#000000] outline-none focus:border-[#2980B9] focus:shadow-md" {...field} {...props} />
-                <ErrorMessage name={props.name} component="span" className="mt-2 text-sm text-[#E74C3C]" />
+                <label className={styles.field__label}>{label}</label>
+                <input className={styles.field__input} {...field} {...props} />
+                <ErrorMessage name={props.name} component="span" className={styles.field__error} />
             </div>
         </>
     )

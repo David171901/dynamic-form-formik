@@ -1,4 +1,5 @@
 import { ErrorMessage, useField } from "formik";
+import styles from '../styles/styles.module.css'
 
 interface Props {
   label: string;
@@ -12,13 +13,13 @@ export const CustomCheckBox = (props: Props) => {
   return (
     <>
       <div>
-        <div className="flex items-center">
-          <label className="text-gray-900 flex justify-center items-center">
+        <div className={styles.container__checkbox}>
+          <label className={styles.checkbox__label}>
             <input
               type="checkbox"
               {...field}
               {...props}
-              className="h-4 w-4 border-gray-300  mr-2"
+              className={styles.checkbox__input}
             />
             {props.label}
           </label>
@@ -27,7 +28,7 @@ export const CustomCheckBox = (props: Props) => {
         <ErrorMessage
           name={props.name}
           component="span"
-          className="mt-2 text-sm text-[#E74C3C]"
+          className={styles.field__error}
         />
       </div>
     </>

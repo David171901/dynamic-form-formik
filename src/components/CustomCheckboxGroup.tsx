@@ -1,4 +1,5 @@
 import { ErrorMessage, Field, useField } from "formik";
+import styles from '../styles/styles.module.css';
 
 type Opt = { value: string | number; desc: string };
 
@@ -15,19 +16,19 @@ export const CustomCheckboxGroup = ({ label, options, ...props }: Props) => {
   return (
     <>
       <div>
-        <label className="mb-1 block text-base font-medium text-[#000000]">
+        <label className={styles.field__label}>
           {label}
         </label>
         {options.map((opt) => (
-          <div className="flex items-center" key={opt.value}>
-            <label className="text-gray-900 flex justify-center items-center">
+          <div className={styles.container__checkbox} key={opt.value}>
+            <label className={styles.checkbox__label}>
               <Field
                 {...field}
                 {...props}
                 type="checkbox"
                 name={props.name}
                 value={opt.value}
-                className="h-4 w-4 border-gray-300  mr-2"
+                className={styles.checkbox__input}
               />
               {opt.desc}
             </label>
@@ -36,7 +37,7 @@ export const CustomCheckboxGroup = ({ label, options, ...props }: Props) => {
         <ErrorMessage
           name={props.name}
           component="span"
-          className="mt-2 text-sm text-[#E74C3C]"
+          className={styles.field__error}
         />
       </div>
     </>
