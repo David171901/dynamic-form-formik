@@ -1,4 +1,4 @@
-import { Form as FormFormik, Formik } from "formik";
+import { Form as FormFormik, Formik } from "formik"
 import {
   CustomCheckBox,
   CustomRadioGroup,
@@ -8,10 +8,11 @@ import {
   CustomCheckboxGroup,
   CustomFieldArrays,
   CustomTextarea,
-} from ".";
-import { getInputs } from "../utils";
-import { FormContext } from "./DynamicFormContainer";
-import { useContext } from "react";
+} from "."
+import { getInputs } from "../utils"
+import { FormContext } from "./DynamicFormContainer"
+import { useContext } from "react"
+import styles from '../styles/styles.module.css'
 
 export const Form = () => {
 
@@ -105,7 +106,7 @@ export const Form = () => {
               }
             })}
             <button
-              className="w-full hover:shadow-form rounded-md bg-[#2980B9] py-3 text-center text-base font-semibold text-white outline-none my-4"
+              className={styles.button__send}
               type="submit"
             >
               SEND

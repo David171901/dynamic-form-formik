@@ -1,6 +1,6 @@
 import { Field, ErrorMessage, FieldArray, useField } from "formik";
 import { Fields } from "../interfaces/interfaces";
-
+import styles from '../styles/styles.module.css'
 
 interface Props {
   name: string;
@@ -13,7 +13,7 @@ interface Props {
 export const CustomFieldArrays = ({ label, ...props }: Props) => {
   return (
     <>
-      <label className="mb-1 block text-base font-medium text-[#000000]">
+      <label className={styles.field__label}>
         {label}
       </label>
       <FieldArray {...props}>
@@ -21,13 +21,13 @@ export const CustomFieldArrays = ({ label, ...props }: Props) => {
           <>
             {props.values[`${props.name}`].map(
               (_: { [key: string]: any }, index: number) => (
-                <div key={index} className={`flex flex-col gap-y-2 md:flex-row md:gap-x-4`}>
+                <div key={index} className={styles.container__fields_array}>
                   {props.fields.map((input, indx) => (
                     <div key={`${props.name}${indx}`} className="grow ">
                       <label>{input.label}</label>
                       <Field
                         type="text"
-                        className="w-full rounded-md border border-[#000000] bg-white py-3 px-6 text-base text-[#000000] outline-none focus:border-[#2980B9] focus:shadow-md"
+                        className={styles.field_array__input}
                         name={`${props.name}[${index}].${input.name}`}
                         placeholder={`${input.placeholder}`}
                       />
@@ -37,13 +37,13 @@ export const CustomFieldArrays = ({ label, ...props }: Props) => {
                       />
                     </div>
                   ))}
-                  <div className="flex items-end">
+                  <div className={styles.container__button_remove}>
                     <button
                       type="button"
                       onClick={() => {
                         if (props.values[props.name].length > 1) remove(index)
                       }}
-                      className="hover:shadow-form rounded-md border-2 border-[#2980B9] py-3 px-8 text-center text-base font-semibold text-black outline-none disabled:line-through"
+                      className={styles.button__remove_field}
                       disabled={props.values[props.name].length === 1}
                     >
                       Remove
@@ -53,7 +53,7 @@ export const CustomFieldArrays = ({ label, ...props }: Props) => {
               )
             )}
             <button
-              className=" my-4 hover:shadow-form rounded-md border-2 border-[#2980B9] py-3 px-8 text-center text-base font-semibold text-black outline-none"
+              className={styles.button__add_field}
               type="button"
               onClick={() =>
                 push(

@@ -1,5 +1,5 @@
-import { ErrorMessage, Field, useField } from "formik";
-import styles from '../styles/styles.module.css';
+import { ErrorMessage, Field, useField } from "formik"
+import styles from '../styles/styles.module.css'
 
 type Opt = { value: string | number; desc: string };
 

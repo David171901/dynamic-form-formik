@@ -1,4 +1,4 @@
-import { ErrorMessage, useField } from "formik";
+import { ErrorMessage, useField } from "formik"
 import styles from '../styles/styles.module.css'
 
 interface Props {
