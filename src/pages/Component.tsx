@@ -2,7 +2,6 @@ import { Form, DynamicFormContainer } from "../components";
 import { InputProps } from "../interfaces/interfaces";
 
 export const Component = () => {
-
   const forms: { [x: string]: InputProps[] } = {
     login: [
       {
@@ -34,6 +33,143 @@ export const Component = () => {
         value: '',
         placeholder:
           'Lorem Ipsum is simply dummy text of the printing and typesetting industry. ',
+        validations: [],
+      },
+      {
+        type: "h2",
+        name: "section3",
+        label: "HTML Content",
+        value: "",
+        validations: [],
+      },
+      {
+        type: 'field-array',
+        name: 'slider',
+        typeValue: 'array',
+        label: 'Message Slider',
+        value: [
+          {
+            description: '',
+          },
+        ],
+        validations: [],
+        fields: [
+          {
+            type: 'text',
+            name: 'description',
+            label: 'Description',
+            placeholder: 'What is visitax?',
+          }
+        ],
+      },
+      {
+        type: "h2",
+        name: "section4",
+        label: "Booking Steps",
+        value: "",
+        validations: [],
+      },
+      {
+        type: 'field-array',
+        name: 'steps',
+        typeValue: 'array',
+        label: 'Steps',
+        value: [
+          {
+            title: '',
+            icon: '',
+            description: '',
+          },
+        ],
+        validations: [],
+        fields: [
+          {
+            type: 'text',
+            name: 'title',
+            label: 'Title',
+            placeholder: '',
+          },
+          {
+            type: 'text',
+            name: 'icon',
+            label: 'Icon',
+            placeholder: '',
+          },
+          {
+            type: 'text',
+            name: 'description',
+            label: 'Description',
+            placeholder: '',
+          }
+        ],
+      },
+      {
+        type: "h2",
+        name: "section5",
+        label: "Visitax",
+        value: "",
+        validations: [],
+      },
+      {
+        type: 'text',
+        name: 'visitax_title',
+        label: 'Product Description',
+        placeholder: '',
+        value: '',
+        validations: [],
+      },
+      {
+        type: 'text',
+        name: 'visitax_purchase_title',
+        label: 'Free form Message',
+        placeholder: '',
+        value: '',
+        validations: [],
+      },
+      {
+        type: "h2",
+        name: "section6",
+        label: "Map (This does not apply to all views)",
+        value: "",
+        validations: [],
+      },
+      {
+        type: 'text',
+        name: 'header_registration',
+        label: 'Header Registration',
+        placeholder: '',
+        value: '',
+        validations: [],
+      },
+      {
+        type: 'text',
+        name: 'map_image',
+        label: 'Map image [URL image: (png, jpg, jpeg)]',
+        placeholder: 'https://image.carekore.app/image.png',
+        value: '',
+        validations: [],
+      },
+      {
+        type: 'text',
+        name: 'map_image_url',
+        label: 'Map image url',
+        placeholder: 'https://image.carekore.app',
+        value: '',
+        validations: [],
+      },
+      {
+        type: "h2",
+        name: "section7",
+        label: "Footer",
+        value: "",
+        validations: [],
+      },
+      {
+        type: 'text',
+        name: 'footer',
+        label: 'Bottom text',
+        placeholder: '',
+        value: '',
         validations: [],
       },
     ],
@@ -247,12 +383,7 @@ export const Component = () => {
       <DynamicFormContainer
         formSchema={forms}
         formTitle={"Register"}
-        onSubmit={ values => console.log(values)}
-        initialformdata={{
-          name: "Full Name",
-          email: "cjl@torkore.com",
-          password: "123456789",
-        }}
+        onSubmit={(values) => console.log(values)}
       >
         {() => (
           <>
