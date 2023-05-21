@@ -32,25 +32,9 @@ export const Component = () => {
         validations: [],
       },
       {
-        type: "textarea",
-        name: "visitax_landing",
-        label: "HTML Landing [<i>HTML code</i>]",
-        value: "",
-        placeholder:
-          "Lorem Ipsum is simply dummy text of the printing and typesetting industry. ",
-        validations: [],
-      },
-      {
-        type: "h2",
-        name: "section3",
-        label: "HTML Content",
-        value: "",
-        validations: [],
-      },
-      {
-        type: "h2",
-        name: "section4",
-        label: "Booking Steps",
+        type: "color",
+        name: "color",
+        label: "Color",
         value: "",
         validations: [],
       },
