@@ -48,26 +48,6 @@ export const Component = () => {
         validations: [],
       },
       {
-        type: "field-array",
-        name: "slider",
-        typeValue: "array",
-        label: "Message Slider",
-        value: [
-          {
-            description: "",
-          },
-        ],
-        validations: [],
-        fields: [
-          {
-            type: "text",
-            name: "description",
-            label: "Description",
-            placeholder: "What is visitax?",
-          },
-        ],
-      },
-      {
         type: "h2",
         name: "section4",
         label: "Booking Steps",
@@ -75,44 +55,37 @@ export const Component = () => {
         validations: [],
       },
       {
-        type: "checkbox-group",
-        name: "numbers",
-        label: "Numbers: ",
-        value: [],
-        typeValue: "array",
-        options: [
+        type: 'field-array',
+        name: 'steps',
+        typeValue: 'array',
+        label: 'Steps',
+        value: [
           {
-            value: "one",
-            desc: "One",
-          },
-          {
-            value: "two",
-            desc: "Two",
-          },
-          {
-            value: "three",
-            desc: "Three",
-          },
-          {
-            value: "four",
-            desc: "Four",
-          },
-          {
-            value: "five",
-            desc: "Five",
+            title: '',
+            icon: '',
+            description: '',
           },
         ],
-        validations: [
+        validations: [],
+        fields: [
           {
-            type: "minLength",
-            value: 2,
-            message: "Select at least two options",
+            type: 'text',
+            name: 'title',
+            label: 'Title',
+            placeholder: '',
           },
           {
-            type: "maxLength",
-            value: 4,
-            message: "Select less than four options",
+            type: 'text',
+            name: 'icon',
+            label: 'Icon',
+            placeholder: '',
           },
+          {
+            type: 'text',
+            name: 'description',
+            label: 'Description',
+            placeholder: '',
+          }
         ],
       },
     ],
