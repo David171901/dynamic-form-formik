@@ -2,60 +2,43 @@ import { Form, DynamicFormContainer } from "../components";
 import { InputProps } from "../interfaces/interfaces";
 
 export const Component = () => {
+
   const forms: { [x: string]: InputProps[] } = {
     login: [
       {
-        type: "h5",
-        name: "register",
-        label: "Register in Carekore",
+        type: "h2",
+        name: "section1",
+        label: "Site Logo",
         value: "",
         validations: [],
       },
       {
-        type: "text",
-        name: "name",
-        label: "Full Name",
-        placeholder: "Full Name",
-        value: "",
-        validations: [
-          {
-            type: "required",
-            message: "Full Name is required",
-          },
-        ],
+        type: 'text',
+        name: 'navbar_logo',
+        label: 'URL image: (png, jpg, jpeg)',
+        placeholder: 'https://image.carekore.app/image.png',
+        value: '',
+        validations: [],
       },
       {
-        type: "email",
-        name: "email",
-        label: "E-mail",
-        placeholder: "E-mail",
+        type: "h2",
+        name: "section2",
+        label: "HTML Content",
         value: "",
-        validations: [
-          {
-            type: "required",
-            message: "Email is required",
-          },
-          {
-            type: "isEmail",
-            message: "Email no valid",
-          },
-        ],
+        validations: [],
       },
       {
-        type: "password",
-        name: "password",
-        label: "Password",
-        placeholder: "*******",
-        value: "",
-        validations: [
-          {
-            type: "required",
-            message: "Password is required",
-          },
-        ],
+        type: 'textarea',
+        name: 'visitax_landing',
+        label: 'HTML Landing [<i>HTML code</i>]',
+        value: '',
+        placeholder:
+          'Lorem Ipsum is simply dummy text of the printing and typesetting industry. ',
+        validations: [],
       },
     ],
   };
+
 
   // const forms: { [x: string]: InputProps[] } = {
   //   login: [
@@ -264,18 +247,14 @@ export const Component = () => {
       <DynamicFormContainer
         formSchema={forms}
         formTitle={"Register"}
-        onSubmit={async values => {
-          const response = await fetch('https://jsonplaceholder.typicode.com/todos/1');
-          const json = await response.json();
-          console.log("🚀 ~ file: Component.tsx:263 ~ Component ~ json:", json)
-        }}
+        onSubmit={ values => console.log(values)}
         initialformdata={{
           name: "Full Name",
           email: "cjl@torkore.com",
           password: "123456789",
         }}
       >
-        {(values) => (
+        {() => (
           <>
             <Form />
           </>
