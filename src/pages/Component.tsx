@@ -12,12 +12,17 @@ export const Component = () => {
         validations: [],
       },
       {
-        type: 'text',
-        name: 'navbar_logo',
-        label: 'URL image: (png, jpg, jpeg)',
-        placeholder: 'https://image.carekore.app/image.png',
-        value: '',
-        validations: [],
+        type: "text",
+        name: "navbar_logo",
+        label: "URL image: (png, jpg, jpeg)",
+        placeholder: "https://image.carekore.app/image.png",
+        value: "",
+        validations: [
+          {
+            type: "isUrl",
+            message: "Must be a URL",
+          },
+        ],
       },
       {
         type: "h2",
@@ -27,12 +32,12 @@ export const Component = () => {
         validations: [],
       },
       {
-        type: 'textarea',
-        name: 'visitax_landing',
-        label: 'HTML Landing [<i>HTML code</i>]',
-        value: '',
+        type: "textarea",
+        name: "visitax_landing",
+        label: "HTML Landing [<i>HTML code</i>]",
+        value: "",
         placeholder:
-          'Lorem Ipsum is simply dummy text of the printing and typesetting industry. ',
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry. ",
         validations: [],
       },
       {
@@ -43,23 +48,23 @@ export const Component = () => {
         validations: [],
       },
       {
-        type: 'field-array',
-        name: 'slider',
-        typeValue: 'array',
-        label: 'Message Slider',
+        type: "field-array",
+        name: "slider",
+        typeValue: "array",
+        label: "Message Slider",
         value: [
           {
-            description: '',
+            description: "",
           },
         ],
         validations: [],
         fields: [
           {
-            type: 'text',
-            name: 'description',
-            label: 'Description',
-            placeholder: 'What is visitax?',
-          }
+            type: "text",
+            name: "description",
+            label: "Description",
+            placeholder: "What is visitax?",
+          },
         ],
       },
       {
@@ -70,111 +75,48 @@ export const Component = () => {
         validations: [],
       },
       {
-        type: 'field-array',
-        name: 'steps',
-        typeValue: 'array',
-        label: 'Steps',
-        value: [
+        type: "checkbox-group",
+        name: "numbers",
+        label: "Numbers: ",
+        value: [],
+        typeValue: "array",
+        options: [
           {
-            title: '',
-            icon: '',
-            description: '',
+            value: "one",
+            desc: "One",
+          },
+          {
+            value: "two",
+            desc: "Two",
+          },
+          {
+            value: "three",
+            desc: "Three",
+          },
+          {
+            value: "four",
+            desc: "Four",
+          },
+          {
+            value: "five",
+            desc: "Five",
           },
         ],
-        validations: [],
-        fields: [
+        validations: [
           {
-            type: 'text',
-            name: 'title',
-            label: 'Title',
-            placeholder: '',
+            type: "minLength",
+            value: 2,
+            message: "Select at least two options",
           },
           {
-            type: 'text',
-            name: 'icon',
-            label: 'Icon',
-            placeholder: '',
+            type: "maxLength",
+            value: 4,
+            message: "Select less than four options",
           },
-          {
-            type: 'text',
-            name: 'description',
-            label: 'Description',
-            placeholder: '',
-          }
         ],
-      },
-      {
-        type: "h2",
-        name: "section5",
-        label: "Visitax",
-        value: "",
-        validations: [],
-      },
-      {
-        type: 'text',
-        name: 'visitax_title',
-        label: 'Product Description',
-        placeholder: '',
-        value: '',
-        validations: [],
-      },
-      {
-        type: 'text',
-        name: 'visitax_purchase_title',
-        label: 'Free form Message',
-        placeholder: '',
-        value: '',
-        validations: [],
-      },
-      {
-        type: "h2",
-        name: "section6",
-        label: "Map (This does not apply to all views)",
-        value: "",
-        validations: [],
-      },
-      {
-        type: 'text',
-        name: 'header_registration',
-        label: 'Header Registration',
-        placeholder: '',
-        value: '',
-        validations: [],
-      },
-      {
-        type: 'text',
-        name: 'map_image',
-        label: 'Map image [URL image: (png, jpg, jpeg)]',
-        placeholder: 'https://image.carekore.app/image.png',
-        value: '',
-        validations: [],
-      },
-      {
-        type: 'text',
-        name: 'map_image_url',
-        label: 'Map image url',
-        placeholder: 'https://image.carekore.app',
-        value: '',
-        validations: [],
-      },
-      {
-        type: "h2",
-        name: "section7",
-        label: "Footer",
-        value: "",
-        validations: [],
-      },
-      {
-        type: 'text',
-        name: 'footer',
-        label: 'Bottom text',
-        placeholder: '',
-        value: '',
-        validations: [],
       },
     ],
   };
-
 
   // const forms: { [x: string]: InputProps[] } = {
   //   login: [

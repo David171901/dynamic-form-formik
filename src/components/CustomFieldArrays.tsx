@@ -23,7 +23,7 @@ export const CustomFieldArrays = ({ label, ...props }: Props) => {
               (_: { [key: string]: any }, index: number) => (
                 <div key={index} className={styles.container__fields_array}>
                   {props.fields.map((input, indx) => (
-                    <div key={`${props.name}${indx}`} className="grow ">
+                    <div key={`${props.name}${indx}`} style={{flexGrow: 1}}>
                       <label>{input.label}</label>
                       <Field
                         type="text"
@@ -33,7 +33,7 @@ export const CustomFieldArrays = ({ label, ...props }: Props) => {
                       />
                       <ErrorMessage
                         name={`${props.name}.${index}.${input.name}`}
-                        component="div"
+                        component="span"
                       />
                     </div>
                   ))}
