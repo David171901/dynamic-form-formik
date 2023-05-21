@@ -1,4 +1,4 @@
-import { Form as FormFormik, Formik } from "formik"
+import { Form as FormFormik, Formik } from "formik";
 import {
   CustomCheckBox,
   CustomRadioGroup,
@@ -8,23 +8,34 @@ import {
   CustomCheckboxGroup,
   CustomFieldArrays,
   CustomTextarea,
-} from "."
-import { getInputs } from "../utils"
-import { FormContext } from "./DynamicFormContainer"
-import { useContext } from "react"
-import styles from '../styles/styles.module.css'
+} from ".";
+import { getInputs } from "../utils";
+import { FormContext } from "./DynamicFormContainer";
+import { useContext } from "react";
+import styles from "../styles/styles.module.css";
+import { CustomLabel } from "../../../backup/dynamic-form-builder-react/src/components/CustomLabel";
 
 export const Form = () => {
-
-  const { formSchema, setvalues, formTitle, className, onSubmit: callback, initialformdata } = useContext(FormContext)
-  const { initialValues, inputs, validationSchema } = getInputs("login", formSchema, initialformdata);
+  const {
+    formSchema,
+    setvalues,
+    formTitle,
+    className,
+    onSubmit: callback,
+    initialformdata,
+  } = useContext(FormContext);
+  const { initialValues, inputs, validationSchema } = getInputs(
+    "login",
+    formSchema,
+    initialformdata
+  );
 
   return (
     <Layout title={formTitle} className={className}>
       <Formik
         {...{ initialValues, validationSchema }}
         onSubmit={(values) => {
-          if(callback) callback(values)
+          if (callback) callback(values);
           setvalues(values);
         }}
       >
@@ -93,6 +104,21 @@ export const Form = () => {
                     />
                   );
 
+                case "h1":
+                case "h2":
+                case "h3":
+                case "h4":
+                case "h5":
+                case "h6":
+                  return (
+                    <CustomLabel
+                      label={props.label!}
+                      key={name}
+                      name={name}
+                      type={type}
+                    />
+                  );
+
                 default:
                   return (
                     <CustomTextInput
@@ -108,7 +134,7 @@ export const Form = () => {
             <button
               className={styles.button__send}
               type="submit"
-              style={{background: "#2980B9"}}
+              style={{ background: "#2980B9" }}
             >
               SEND
             </button>

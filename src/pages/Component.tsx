@@ -5,6 +5,13 @@ export const Component = () => {
   const forms: { [x: string]: InputProps[] } = {
     login: [
       {
+        type: "h5",
+        name: "register",
+        label: "Register in Carekore",
+        value: "",
+        validations: [],
+      },
+      {
         type: "text",
         name: "name",
         label: "Full Name",

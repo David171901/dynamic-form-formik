@@ -19,6 +19,6 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src"],
+  "include": ["src", "../backup/dynamic-form-builder-react/src/components/CustomLabel.tsx"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
