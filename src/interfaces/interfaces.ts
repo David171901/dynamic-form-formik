@@ -27,6 +27,7 @@ export interface InputProps {
   label?: string
   options?: Opt[]
   fields?: Fields[]
+  tooltip?: string
 }
 
 export interface Opt {
@@ -35,7 +36,7 @@ export interface Opt {
 }
 
 export interface Fields {
-  type: "text"
+  type: "text" | "textarea"
   name: string
   label: string
   placeholder?: string

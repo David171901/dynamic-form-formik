@@ -39,7 +39,6 @@ export const CustomFieldArrays = ({ label, ...props }: Props) => {
                     (_: { [key: string]: any }, index: number) => (
                       <tr
                         key={index}
-                        // className={styles.tr}
                       >
                         {props.fields.map((input, indx) => (
                           <td
@@ -50,7 +49,7 @@ export const CustomFieldArrays = ({ label, ...props }: Props) => {
                               {input.label}
                             </span>
                             <Field
-                              type="text"
+                              as={`${(input.type === 'text') ? 'input' : 'textarea'}`}
                               name={`${props.name}[${index}].${input.name}`}
                               placeholder={`${input.placeholder}`}
                               className={styles.field_array__input}

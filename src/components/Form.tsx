@@ -50,6 +50,7 @@ export const Form = () => {
                       label={props.label!}
                       name={name}
                       options={props.options!}
+                      tooltip={props.tooltip}
                     />
                   );
 
@@ -60,6 +61,7 @@ export const Form = () => {
                       name={name}
                       options={props.options!}
                       key={name}
+                      tooltip={props.tooltip}
                     />
                   );
 
@@ -70,6 +72,7 @@ export const Form = () => {
                       name={name}
                       options={props.options!}
                       key={name}
+                      tooltip={props.tooltip}
                     />
                   );
 
@@ -88,6 +91,7 @@ export const Form = () => {
                       label={props.label!}
                       key={name}
                       name={name}
+                      tooltip={props.tooltip}
                     />
                   );
 
@@ -99,6 +103,7 @@ export const Form = () => {
                       name={name}
                       fields={props.fields!}
                       values={values}
+                      tooltip={props.tooltip}
                     />
                   );
 
@@ -110,6 +115,7 @@ export const Form = () => {
                       name={name}
                       placeholder={props.placeholder}
                       type={type}
+                      tooltip={props.tooltip}
                     />
                   );
 
@@ -136,6 +142,7 @@ export const Form = () => {
                       name={name}
                       placeholder={props.placeholder}
                       type={type}
+                      tooltip={props.tooltip}
                     />
                   );
               }
@@ -143,7 +150,7 @@ export const Form = () => {
             <button
               className={styles.button__send}
               type="submit"
-              style={{ background: '#2980B9' }}
+              style={{ background: '#005EB8' }}
             >
               SEND
             </button>

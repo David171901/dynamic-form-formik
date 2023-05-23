@@ -5,71 +5,63 @@ export const Component = () => {
   const forms: { [x: string]: InputProps[] } = {
     login: [
       {
-        type: "h2",
-        name: "section1",
-        label: "Site Logo",
+        type: "textarea",
+        name: "email",
+        label: "E-mail",
+        placeholder: "E-mail",
         value: "",
-        validations: [],
-      },
-      {
-        type: "text",
-        name: "navbar_logo",
-        label: "URL image: (png, jpg, jpeg)",
-        placeholder: "https://image.carekore.app/image.png",
-        value: "",
+        tooltip: "Here!",
         validations: [
           {
-            type: "isUrl",
-            message: "Must be a URL",
+            type: "required",
+            message: "Email is required",
+          },
+          {
+            type: "isEmail",
+            message: "Email no valid",
           },
         ],
       },
       {
-        type: "h2",
-        name: "section2",
-        label: "HTML Content",
-        value: "",
+        type: "checkbox",
+        name: "terms",
+        typeValue: "boolean",
+        label: "Terms and Conditions",
+        value: false,
         validations: [],
       },
       {
-        type: "color",
-        name: "color",
-        label: "Color",
-        value: "",
-        validations: [],
-      },
-      {
-        type: 'field-array',
-        name: 'steps',
-        typeValue: 'array',
-        label: 'Steps',
+        type: "field-array",
+        name: "steps",
+        typeValue: "array",
+        label: "Steps",
         value: [
           {
-            title: '',
-            icon: '',
-            description: '',
+            title: "",
+            icon: "",
+            description: "",
           },
         ],
         validations: [],
         fields: [
           {
-            type: 'text',
-            name: 'title',
-            label: 'Title',
-            placeholder: '',
+            type: "text",
+            name: "title",
+            label: "Title",
+            placeholder: "",
           },
           {
-            type: 'text',
-            name: 'icon',
-            label: 'Icon',
-            placeholder: '',
+            type: "textarea",
+            name: "icon",
+            label: "Icon",
+            placeholder: "",
           },
           {
-            type: 'text',
-            name: 'description',
-            label: 'Description',
-            placeholder: '',
-          }
+            type: "text",
+            name: "description",
+            label: "Description",
+            placeholder: "",
+          },
         ],
       },
     ],
@@ -279,6 +271,7 @@ export const Component = () => {
 
   return (
     <div>
+      <h1 className="text-2xl">Formulario de prueba</h1>
       <DynamicFormContainer
         formSchema={forms}
         formTitle={"Register"}
