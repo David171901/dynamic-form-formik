@@ -47,7 +47,30 @@ export const Component = () => {
         type: "color",
         name: "color",
         label: "Color",
+        value: "#000000",
+      },
+      {
+        type: "date",
+        name: "date",
+        label: "Date",
         value: "",
+        typeValue: "date",
+        validations: [
+          {
+            type: "maxDate",
+            value: "2023-05-13",
+            message: "Invalid Date!",
+          },
+          {
+            type: "minDate",
+            value: "2023-05-10",
+            message: "Invalid Date!",
+          },
+          {
+            type: "required",
+            message: "Date is required",
+          },
+        ],
       },
       // {
       //   type: 'field-array',
