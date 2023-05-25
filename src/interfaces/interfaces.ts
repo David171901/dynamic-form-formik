@@ -17,11 +17,12 @@ export interface InputProps {
     | "radio-group"
     | "select"
     | "checkbox"
+    | "date"
     | "checkbox-group"
     | "field-array";
   name: string;
   value: string | number | boolean | string[] | DefaultJSON[]
-  validations: Validation[]
+  validations?: Validation[]
   placeholder?: string
   typeValue?: "string" | "boolean" | "array"
   label?: string

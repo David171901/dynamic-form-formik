@@ -5,11 +5,24 @@ export const Component = () => {
   const forms: { [x: string]: InputProps[] } = {
     login: [
       {
+        type: "textarea",
+        name: "description",
+        label: "Description",
+        value: "",
+        placeholder:
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry. ",
+        validations: [
+          {
+            type: "required",
+            message: "Description is required",
+          },
+        ],
+      },
+      {
         type: "h2",
         name: "section1",
         label: "Site Logo",
         value: "",
-        validations: [],
       },
       {
         type: "text",
@@ -29,49 +42,46 @@ export const Component = () => {
         name: "section2",
         label: "HTML Content",
         value: "",
-        validations: [],
       },
       {
         type: "color",
         name: "color",
         label: "Color",
         value: "",
-        validations: [],
       },
-      {
-        type: 'field-array',
-        name: 'steps',
-        typeValue: 'array',
-        label: 'Steps',
-        value: [
-          {
-            title: '',
-            icon: '',
-            description: '',
-          },
-        ],
-        validations: [],
-        fields: [
-          {
-            type: 'text',
-            name: 'title',
-            label: 'Title',
-            placeholder: '',
-          },
-          {
-            type: 'text',
-            name: 'icon',
-            label: 'Icon',
-            placeholder: '',
-          },
-          {
-            type: 'text',
-            name: 'description',
-            label: 'Description',
-            placeholder: '',
-          }
-        ],
-      },
+      // {
+      //   type: 'field-array',
+      //   name: 'steps',
+      //   typeValue: 'array',
+      //   label: 'Steps',
+      //   value: [
+      //     {
+      //       title: '',
+      //       icon: '',
+      //       description: '',
+      //     },
+      //   ],
+      //   fields: [
+      //     {
+      //       type: 'text',
+      //       name: 'title',
+      //       label: 'Title',
+      //       placeholder: '',
+      //     },
+      //     {
+      //       type: 'text',
+      //       name: 'icon',
+      //       label: 'Icon',
+      //       placeholder: '',
+      //     },
+      //     {
+      //       type: 'text',
+      //       name: 'description',
+      //       label: 'Description',
+      //       placeholder: '',
+      //     }
+      //   ],
+      // },
     ],
   };
 
@@ -283,6 +293,7 @@ export const Component = () => {
         formSchema={forms}
         formTitle={"Register"}
         onSubmit={(values) => console.log(values)}
+        className="container mx-auto"
       >
         {() => (
           <>
